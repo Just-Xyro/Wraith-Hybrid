@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="Xyro.png" alt="Xyro Banner" width="700"/>
+<img src="Xyro.png" alt="Xyro Banner" width="400"/>
 
 ![Xyro Banner](https://img.shields.io/badge/Xyro-Hybrid-blue?style=for-the-badge&logo=python)
 ![Python](https://img.shields.io/badge/Python-3.12+-green?style=for-the-badge&logo=python)
