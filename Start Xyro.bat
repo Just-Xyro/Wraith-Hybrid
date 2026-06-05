@@ -12,69 +12,28 @@ echo.
 echo [UPDATE] Checking for updates...
 echo.
 
-if not exist "version.json" (
-    echo [INFO] version.json not found, creating default...
-    echo {"version":"1.0.0","repo":"Just-Xyro/Xyro-Hybrid"} > version.json
-)
-
-for /f "tokens=2 delims=:," %%a in ('findstr "version" version.json') do set CURRENT_VERSION=%%a
-set CURRENT_VERSION=%CURRENT_VERSION:"=%
-set CURRENT_VERSION=%CURRENT_VERSION: =%
-
-echo [INFO] Current version: %CURRENT_VERSION%
-
-curl -s https://api.github.com/repos/Just-Xyro/Xyro-Hybrid/releases/latest > latest_release.json 2>nul
-
-findstr "Not Found" latest_release.json >nul 2>&1
-if %errorlevel% equ 0 (
-    echo [WARNING] Repository or release not found. Continuing with current version.
-    goto :skip_update
-)
+echo [UPDATE] Downloading latest version...
+curl -L -o Xyro_Update.zip https://github.com/Just-Xyro/Xyro-Hybrid/archive/refs/heads/main.zip
 
 if %errorlevel% neq 0 (
-    echo [WARNING] Failed to check for updates. Continuing with current version.
+    echo [WARNING] Failed to download update. Continuing with current version.
     goto :skip_update
 )
 
-for /f "tokens=2 delims=:," %%a in ('findstr "tag_name" latest_release.json') do set LATEST_VERSION=%%a
-set LATEST_VERSION=%LATEST_VERSION:"=%
-set LATEST_VERSION=%LATEST_VERSION: =%
+echo [UPDATE] Extracting update...
+tar -xf Xyro_Update.zip
 
-echo [INFO] Latest version: %LATEST_VERSION%
-
-if "%LATEST_VERSION%"=="%CURRENT_VERSION%" (
-    echo [UPDATE] Already up to date!
-) else (
-    echo [UPDATE] New version available: %LATEST_VERSION%
-    echo [UPDATE] Updating...
-
-    echo [UPDATE] Downloading latest version...
-    curl -L -o Xyro_Update.zip https://github.com/Just-Xyro/Xyro-Hybrid/archive/refs/heads/main.zip
-
-    if %errorlevel% neq 0 (
-        echo [WARNING] Failed to download update. Continuing with current version.
-        goto :skip_update
-    )
-
-    echo [UPDATE] Extracting update...
-    tar -xf Xyro_Update.zip
-
-    echo [UPDATE] Copying files...
-    for /d %%d in (Xyro-Hybrid-*) do (
-        xcopy "%%d\*" . /Y /E /I /H
-        rmdir /s /q "%%d"
-    )
-
-    echo {"version":"%LATEST_VERSION%","repo":"Just-Xyro/Xyro-Hybrid"} > version.json
-
-    del Xyro_Update.zip
-    del latest_release.json
-
-    echo [SUCCESS] Update complete! New version: %LATEST_VERSION%
+echo [UPDATE] Copying files...
+for /d %%d in (Xyro-Hybrid-*) do (
+    xcopy "%%d\*" . /Y /E /I /H
+    rmdir /s /q "%%d"
 )
 
+del Xyro_Update.zip
+
+echo [SUCCESS] Update complete!
+
 :skip_update
-del latest_release.json 2>nul
 echo.
 
 python --version >nul 2>&1
