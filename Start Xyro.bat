@@ -1,4 +1,5 @@
 @echo off
+cd /d "%~dp0"
 title Xyro
 color 0b
 cls
