@@ -71,20 +71,6 @@ If you prefer manual setup:
    python main.py
    ```
 
----
-
-## Requirements
-
-- **Python:** 3.12 or higher
-- **Operating System:** Windows 10/11
-- **Dependencies:**
-  - `cryptography`
-  - `psutil`
-  - `pywin32`
-  - `mitmproxy`
-
----
-
 ## Usage
 
 ### Standard Mode
