@@ -14,22 +14,39 @@ if %errorlevel% neq 0 (
     echo [SETUP] Python is not installed. Attempting to install...
     echo.
     
-    winget install Python.Python.3.12 --accept-package-agreements --accept-source-agreements
+    winget install --id Python.Python.3.12 --accept-package-agreements --accept-source-agreements -e --silent
     if %errorlevel% neq 0 (
         echo.
-        echo [ERROR] Failed to install Python using winget.
+        echo [WARNING] winget installation may have encountered issues.
+        echo Verifying Python installation...
+    )
+    
+    echo.
+    echo [INFO] Waiting for Python installation to complete...
+    timeout /t 5 /nobreak >nul
+    
+    echo Refreshing environment variables...
+    call refreshenv >nul 2>&1
+    if %errorlevel% neq 0 (
+        echo [INFO] refreshenv not available, using alternative method...
+        for /f "tokens=2*" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v Path 2^>nul') do set "PATH=%%b"
+        for /f "tokens=2*" %%a in ('reg query "HKCU\Environment" /v Path 2^>nul') do set "PATH=%%b;%PATH%"
+    )
+    timeout /t 3 /nobreak >nul
+    
+    echo.
+    echo [VERIFY] Checking if Python is now available...
+    python --version >nul 2>&1
+    if %errorlevel% neq 0 (
+        echo.
+        echo [ERROR] Python installation verification failed.
         echo Please install Python manually from https://www.python.org/downloads/
+        echo Make sure to check "Add Python to PATH" during installation.
         echo.
         pause
         exit /b 1
     )
-    
-    echo.
-    echo [SUCCESS] Python installed successfully!
-    echo.
-    echo Refreshing environment variables...
-    refreshenv >nul 2>&1
-    timeout /t 3 /nobreak >nul
+    echo [SUCCESS] Python installed and verified successfully!
 ) else (
     echo [CHECK] Python is already installed.
 )
