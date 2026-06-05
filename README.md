@@ -55,6 +55,8 @@ The launcher will automatically:
 2. Install all required dependencies
 3. Launch Xyro
 
+> ⚠️ **SSL Certificate Note:** If you see yellow messages in the log saying "SSL handshake failed" or similar SSL errors, run `Install Certs.bat` as administrator one time to fix this permanently.
+
 ### Manual Installation
 
 If you prefer manual setup:
