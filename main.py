@@ -24,7 +24,7 @@ debugMode = '-debug' in sys.argv
 shutdownEvent = asyncio.Event()
 FORTNITE_LOCAL_CAPTURE_SPEC = ','.join(['FortniteClient-Win64-Shipping.exe', 'FortniteClient-Win64-Shipping_EAC_EOS.exe', 'FortniteLauncher.exe'])
 LOCAL_IGNORE_HOSTS = ['.*iostore.*\\.epicgames\\.com:443', '.*download.*\\.epicgames\\.com:443', '.*cdn.*\\.epicgames\\.com:443']
-FORTNITE_LAUNCH_ARGS = ['-HIGH', '-USEALLAVAILABLECORES', '-NOSPLASH', '-PREFERREDPROCESSOR', '8', '-NOTEXTURESTREAMING', '-NORHITHREAD']
+FORTNITE_LAUNCH_ARGS = ['-HIGH', '-USEALLAVAILABLECORES', '-NOSPLASH', '-PREFERREDPROCESSOR 8', '-NOTEXTURESTREAMING', '-NORHITHREAD', '-d3d11']
 
 def killProcessByName(processName: str):
     try:
