@@ -2,3 +2,4 @@ cryptography
 psutil
 pywin32
 mitmproxy
+requests
