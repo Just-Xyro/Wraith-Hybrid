@@ -119,17 +119,17 @@ def buildAthenaProfileItems(self, accountId, deploymentId, currentTime):
             pastSeasons.append(
                 {
                     "seasonNumber": i,
-                    "numWins": 10000,
+                    "numWins": 2,
                     "seasonXp": 1000000,
                     "seasonLevel": 500,
                     "bookXp": 1000000,
-                    "bookLevel": 500,
+                    "bookLevel": 2,
                     "purchasedVIP": True,
                 }
             )
         self.athenaStats = {
             "attributes": {
-                "level": 67,
+                "level": 43,
                 "xp": 0,
                 "season_num": self.seasonNum,
                 "past_seasons": pastSeasons,
@@ -152,8 +152,8 @@ def buildAthenaProfileItems(self, accountId, deploymentId, currentTime):
         items[athenaSeasonId] = {
             "templateId": f"AthenaSeason:athenaseason{self.seasonNum}",
             "attributes": {
-                "level": 67,
-                "currency_season_total": 67,
+                "level": 43,
+                "currency_season_total": 43,
                 "purchase_date": "min",
                 "purchase_context": "None",
             },
@@ -317,7 +317,7 @@ def response(self, flow: http.HTTPFlow):
                 "Currency:MtxPurchased": {
                     "templateId": "Currency:MtxPurchased",
                     "attributes": {"platform": "EpicPC"},
-                    "quantity": 1000000,
+                    "quantity": 300,
                 }
             }
 
