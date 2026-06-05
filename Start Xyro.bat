@@ -48,11 +48,8 @@ if "%LATEST_VERSION%"=="%CURRENT_VERSION%" (
     echo [UPDATE] New version available: %LATEST_VERSION%
     echo [UPDATE] Updating...
 
-    for /f "tokens=2 delims=:," %%a in ('findstr "browser_download_url" latest_release.json ^| findstr ".zip"') do set DOWNLOAD_URL=%%a
-    set DOWNLOAD_URL=%DOWNLOAD_URL:"=%
-    set DOWNLOAD_URL=%DOWNLOAD_URL: =%
-
-    curl -L -o Xyro_Update.zip "%DOWNLOAD_URL%"
+    echo [UPDATE] Downloading latest version...
+    curl -L -o Xyro_Update.zip https://github.com/Just-Xyro/Xyro-Hybrid/archive/refs/heads/main.zip
 
     if %errorlevel% neq 0 (
         echo [WARNING] Failed to download update. Continuing with current version.
@@ -62,7 +59,8 @@ if "%LATEST_VERSION%"=="%CURRENT_VERSION%" (
     echo [UPDATE] Extracting update...
     tar -xf Xyro_Update.zip
 
-    for /d %%d in (Xyro-*) do (
+    echo [UPDATE] Copying files...
+    for /d %%d in (Xyro-Hybrid-*) do (
         xcopy "%%d\*" . /Y /E /I /H
         rmdir /s /q "%%d"
     )

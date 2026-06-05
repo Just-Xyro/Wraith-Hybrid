@@ -26,7 +26,7 @@ debugMode = '-debug' in sys.argv
 shutdownEvent = asyncio.Event()
 FORTNITE_LOCAL_CAPTURE_SPEC = ','.join(['FortniteClient-Win64-Shipping.exe', 'FortniteClient-Win64-Shipping_EAC_EOS.exe', 'FortniteLauncher.exe'])
 LOCAL_IGNORE_HOSTS = ['.*iostore.*\\.epicgames\\.com:443', '.*download.*\\.epicgames\\.com:443', '.*cdn.*\\.epicgames\\.com:443']
-FORTNITE_LAUNCH_ARGS = ['-HIGH', '-USEALLAVAILABLECORES', '-NOSPLASH', '-PREFERREDPROCESSOR 8', '-NOTEXTURESTREAMING', '-NORHITHREAD', '-FeatureLevelES31']
+FORTNITE_LAUNCH_ARGS = ['-HIGH', '-USEALLAVAILABLECORES', '-NOSPLASH', '-PREFERREDPROCESSOR 8', '-NOTEXTURESTREAMING', '-NORHITHREAD']
 
 def killProcessByName(processName: str):
     try:
@@ -177,7 +177,7 @@ async def runProxy():
     launch_cmd = f"com.epicgames.launcher://apps/fn:4fe75bbc5a674f4f9b356b5c90567da5:Fortnite?{'&'.join(args)}"
 
     print(f'[Xyro] Launching Fortnite with performance arguments...')
-    webbrowser.open(launch_cmd)
+    os.system(f'start "" "{launch_cmd}"')
     
     await shutdownEvent.wait()
     onExit()
