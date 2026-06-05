@@ -22,13 +22,13 @@
 
 ## Cosmetic Styles Disclaimer
 
-YOU CANT WEAR ANY COSMETIC YOU WANT YOU TECHNICALLY HAVE TO OWN THE COSMETIC STILL. IT WILL ONLY UNLOCK THE STYLES OF THE COSMEITC FOR EXAMPLE IF YOU OWN SKULL TROOPER YOU CAN BE PURPLE STYLE PERFECTLY FINE EVEN IF YOU DONT OWN STYLE BUT IF YOU DONT OWN SKULL TROOPER YOU WILL BE REMOVED FROM MATCH YOU CAN DO METHODS TO BYPASS THE KICK AND EQUIP WHATEVER YOU WANT THOUGH JUST MORE STEPS
+> ⚠️ **WARNING:** YOU CANT WEAR ANY COSMETIC YOU WANT YOU TECHNICALLY HAVE TO OWN THE COSMETIC STILL. IT WILL ONLY UNLOCK THE STYLES OF THE COSMEITC FOR EXAMPLE IF YOU OWN SKULL TROOPER YOU CAN BE PURPLE STYLE PERFECTLY FINE EVEN IF YOU DONT OWN STYLE BUT IF YOU DONT OWN SKULL TROOPER YOU WILL BE REMOVED FROM MATCH YOU CAN DO METHODS TO BYPASS THE KICK AND EQUIP WHATEVER YOU WANT THOUGH JUST MORE STEPS
 
 ### Skins That Work Well If You Own
 
 - Skull Trooper
-- Fishstick
-- Lara Croft
+- FishStick
+- LaraCroft
 - Party Trooper
 - Master Cheif
 - Ghoul Trooper
@@ -99,6 +99,26 @@ Start Xyro.bat
 - Use at your own risk as it may lead to account and HWID bans (NONE YET)
 - Not affiliated with Epic Games
 
+---
+
+## No Kick Method
+
+### How to equip cosmetics in UEFN / Creative 2.0 Without being kicked
+
+1. **Join** any UEFN / Creative 2.0 game.
+2. **Leave** the game after **3 seconds**.
+3. **Wait in the lobby** for **10 seconds**.
+4. **Rejoin** the *same* game/session using a **friend** or an **alt** account.
+5. Once you're back in, **wait 2.3 minutes**.
+6. After the 2.3 minutes, **enter a booth** and **equip the cosmetics** you want.
+7. **Have fun!**
+
+
+### Important and Helpful Information
+
+- Your friend or alt account has to stay in the **same match** if you don't want to be kicked again
+- Sometimes, you get "Error" many times, keep going into the same match. If you get "Error" after joining the same friend more than 3 times, try a new map.
+- **Sometimes "Matchmaking Error #1 Unknown Error" when you are trying to join match again happens. IT means you have less chance of staying after "Error". You should make your friend or alternate account leave the match so you can do a different map**
 ---
 
 ## Troubleshooting
