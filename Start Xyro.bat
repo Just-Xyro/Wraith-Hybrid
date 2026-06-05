@@ -25,6 +25,12 @@ echo [INFO] Current version: %CURRENT_VERSION%
 
 curl -s https://api.github.com/repos/Just-Xyro/Xyro-Hybrid/releases/latest > latest_release.json 2>nul
 
+findstr "Not Found" latest_release.json >nul 2>&1
+if %errorlevel% equ 0 (
+    echo [WARNING] Repository or release not found. Continuing with current version.
+    goto :skip_update
+)
+
 if %errorlevel% neq 0 (
     echo [WARNING] Failed to check for updates. Continuing with current version.
     goto :skip_update
