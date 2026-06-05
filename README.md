@@ -27,8 +27,8 @@ YOU CANT WEAR ANY COSMETIC YOU WANT YOU TECHNICALLY HAVE TO OWN THE COSMETIC STI
 ### Skins That Work Well If You Own
 
 - Skull Trooper
-- FishStick
-- LaraCroft
+- Fishstick
+- Lara Croft
 - Party Trooper
 - Master Cheif
 - Ghoul Trooper
