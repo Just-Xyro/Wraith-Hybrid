@@ -1,0 +1,113 @@
+{
+  "deploymentId": "",
+  "accountId": "",
+  "athenaItemId": "Xyro",
+  "creationTime": "",
+  "updatedTime": "",
+  "loadouts": {
+    "CosmeticLoadout:LoadoutSchema_Character": {
+      "loadoutSlots": [
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Character",
+          "equippedItemId": "AthenaCharacter:character_id_000_null",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Backpack",
+          "equippedItemId": "AthenaBackpack:bid_000_null",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Pickaxe",
+          "equippedItemId": "AthenaPickaxe:pickaxe_id_000_null",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Glider",
+          "equippedItemId": "AthenaGlider:glider_id_000_null",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Shoes",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Contrails",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Aura",
+          "equippedItemId": "SparksAura:aura_id_000_null",
+          "itemCustomizations": []
+        }
+      ]
+    },
+    "CosmeticLoadout:LoadoutSchema_Emotes": {
+      "loadoutSlots": [
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Emote_0",
+          "equippedItemId": "AthenaDance:emoji_id_000_null",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Emote_1",
+          "equippedItemId": "AthenaDance:emoji_id_000_null",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Emote_2",
+          "equippedItemId": "AthenaDance:emoji_id_000_null",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Emote_3",
+          "equippedItemId": "AthenaDance:emoji_id_000_null",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Emote_4",
+          "equippedItemId": "AthenaDance:emoji_id_000_null",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Emote_5",
+          "equippedItemId": "AthenaDance:emoji_id_000_null",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Emote_6",
+          "equippedItemId": "AthenaDance:emoji_id_000_null",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Emote_7",
+          "equippedItemId": "AthenaDance:emoji_id_000_null",
+          "itemCustomizations": []
+        }
+      ]
+    },
+    "CosmeticLoadout:LoadoutSchema_Platform": {
+      "loadoutSlots": [
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Banner_Icon",
+          "equippedItemId": "HomebaseBannerIcon:brseason01",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_Banner_Color",
+          "equippedItemId": "HomebaseBannerColor:defaultcolor22",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_LobbyMusic",
+          "itemCustomizations": []
+        },
+        {
+          "slotTemplate": "CosmeticLoadoutSlotTemplate:LoadoutSlot_LoadingScreen",
+          "itemCustomizations": []
+        }
+      ]
+    }
+  },
+  "shuffleType": "DISABLED"
+}
