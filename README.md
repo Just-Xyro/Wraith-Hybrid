@@ -6,7 +6,6 @@
   <img src="Xyro.png" alt="Xyro Banner" width="600"/>
 </a>
 
-![Xyro Banner](https://img.shields.io/badge/Xyro-Hybrid-blue?style=for-the-badge&logo=python)
 ![Python](https://img.shields.io/badge/Python-3.12+-green?style=for-the-badge&logo=python)
 ![Windows](https://img.shields.io/badge/Windows-10/11-blue?style=for-the-badge&logo=windows)
 
