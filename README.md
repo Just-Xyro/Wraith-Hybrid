@@ -3,7 +3,7 @@
 <div align="center">
 
 <a href="https://github.com/Just-Xyro/Xyro-Hybrid/archive/refs/heads/main.zip">
-  <img src="Xyro.png" alt="Xyro Banner" width="300"/>
+  <img src="images/Xyro.png" alt="Xyro Banner" width="600"/>
 </a>
 
 ![Xyro Banner](https://img.shields.io/badge/Xyro-Hybrid-blue?style=for-the-badge&logo=python)
