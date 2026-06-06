@@ -6,8 +6,17 @@ from pathlib import Path
 
 from mitmproxy import http
 from utils import defs
+from handlers import filters
 
+config_path = os.path.join(os.path.dirname(__file__), "..", "config.json")
+with open(config_path, "r") as f:
+    config = json.load(f)
 
+profile_config = config.get("profile", {})
+profile_level = profile_config.get("level", 43)
+profile_vbucks = profile_config.get("vbucks", 300)
+
+    
 def getProfileDir(accountId):
     return Path("profiles") / accountId
 
@@ -103,7 +112,22 @@ def loadAllConfig(accountId, deploymentId, currentTime):
         currentTime,
     )
     savedStatus, _ = loadDataFile(
-        accountId, "savedStatus.json", {"favorite": [], "archived": []}
+        accountId, "savedStatus.json", {
+            "favorite": [
+                "AthenaCharacter:CID_030_Athena_Commando_M_Halloween",
+                "AthenaCharacter:CID_029_Athena_Commando_F_Halloween",
+                "AthenaCharacter:CID_A_040_Athena_Commando_F_Temple",
+                "AthenaCharacter:CID_964_Athena_Commando_M_Historian_869BC",
+                "AthenaCharacter:CID_971_Athena_Commando_M_Jupiter_S0Z6M",
+                "AthenaCharacter:CID_315_Athena_Commando_M_TeriyakiFish",
+                "AthenaCharacter:CID_920_Athena_Commando_M_PartyTrooper",
+                "AthenaCharacter:CID_017_Athena_Commando_M",
+                "AthenaCharacter:CID_028_Athena_Commando_F",
+                "AthenaCharacter:CID_547_Athena_Commando_F_Meteorwoman",
+                "AthenaCharacter:CID_116_Athena_Commando_M_CarbideBlack"
+            ],
+            "archived": []
+        }
     )
 
     return {
@@ -129,7 +153,7 @@ def buildAthenaProfileItems(self, accountId, deploymentId, currentTime):
             )
         self.athenaStats = {
             "attributes": {
-                "level": 43,
+                "level": profile_level,
                 "xp": 0,
                 "season_num": self.seasonNum,
                 "past_seasons": pastSeasons,
@@ -152,8 +176,8 @@ def buildAthenaProfileItems(self, accountId, deploymentId, currentTime):
         items[athenaSeasonId] = {
             "templateId": f"AthenaSeason:athenaseason{self.seasonNum}",
             "attributes": {
-                "level": 43,
-                "currency_season_total": 43,
+                "level": profile_level,
+                "currency_season_total": profile_level,
                 "purchase_date": "min",
                 "purchase_context": "None",
             },
@@ -317,7 +341,7 @@ def response(self, flow: http.HTTPFlow):
                 "Currency:MtxPurchased": {
                     "templateId": "Currency:MtxPurchased",
                     "attributes": {"platform": "EpicPC"},
-                    "quantity": 300,
+                    "quantity": profile_vbucks,
                 }
             }
 

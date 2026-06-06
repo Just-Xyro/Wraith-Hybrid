@@ -17,8 +17,10 @@ from cryptography.hazmat.primitives import hashes
 from mitmproxy import certs, http, options
 from mitmproxy.tools.dump import DumpMaster
 from mitmproxy.tools.web.master import WebMaster
-from modifications import cloudstorage, contentpages, mcp, motd, xmpp
+from modifications import cloudstorage, contentpages, mcp, motd, xmpp, background
+from exploits import renamer
 from utils import cosmetics
+from handlers import rpc
 
 debugMode = '-debug' in sys.argv
 shutdownEvent = asyncio.Event()
@@ -54,11 +56,16 @@ class Xyro:
         self.profileRevision = 1
         self.seasonNum = 0
 
+    def request(self, flow: http.HTTPFlow):
+        background.request(self, flow)
+
     def response(self, flow: http.HTTPFlow):
         cloudstorage.response(self, flow)
         contentpages.response(self, flow)
         mcp.response(self, flow)
         motd.response(self, flow)
+        background.response(self, flow)
+        renamer.response(self, flow)
 
     def websocket_message(self, flow: http.HTTPFlow):
         xmpp.websocket_message(self, flow)
@@ -106,12 +113,16 @@ async def runProxy():
     killProcessByName('EpicGamesLauncher.exe')
     await installCertificate()
     print(f'[Xyro] Local proxy capture enabled via mitmproxy local mode for: {FORTNITE_LOCAL_CAPTURE_SPEC}')
+    
+    rpc_manager = await rpc.create_and_start_rpc()
+    
     asyncio.create_task(runMitmproxy(proxyInstance))
     args = ['action=launch', 'silent=true'] + [f'arg={arg}' for arg in FORTNITE_LAUNCH_ARGS]
     launch_cmd = f"com.epicgames.launcher://apps/fn:4fe75bbc5a674f4f9b356b5c90567da5:Fortnite?{'&'.join(args)}"
     print(f'[Xyro] Launching Fortnite with performance arguments...')
     os.system(f'start "" "{launch_cmd}"')
     await shutdownEvent.wait()
+    await rpc.stop_rpc_connection(rpc_manager)
     onExit()
 
 if __name__ == '__main__':

@@ -2,6 +2,7 @@ import json
 import xml.etree.ElementTree as ET
 
 from mitmproxy import http
+from handlers import filters
 
 
 def websocket_message(proxy, flow: http.HTTPFlow):

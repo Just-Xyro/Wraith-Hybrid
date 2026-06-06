@@ -2,6 +2,7 @@ import json
 
 from mitmproxy import http
 from utils import defs
+from handlers import filters
 
 
 @defs.isFortniteAgent

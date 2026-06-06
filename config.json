@@ -1,0 +1,35 @@
+{
+  "exploits": {
+    "renamer": {
+      "enabled": true,
+      "replacements": [
+        {
+          "from": "PLACEHOLDER",
+          "to": "[DEVELOPER] Xyro"
+        },
+        {
+          "from": "Battle Royale",
+          "to": "Xyro Hybrid | Battle Royale"
+        },
+        {
+          "from": "Reload",
+          "to": "https://xyro-hybrid.netlify.app/"
+        }
+      ]
+    },
+    "custom_background": {
+      "enabled": true,
+      "url": "https://github.com/Just-Xyro/Xyro-Hybrid/blob/main/lobby.png?raw=true"
+    }
+  },
+  "profile": {
+    "level": 9999999,
+    "vbucks": 9999999
+  },
+  "rpc": {
+    "enabled": true,
+    "client_id": "1512746861457576037",
+    "large_image": "https://github.com/Just-Xyro/Xyro-Hybrid/blob/main/rpc.jpeg?raw=true",
+    "large_text": "Xyro Hybrid"
+  }
+}

@@ -5,7 +5,8 @@ from datetime import datetime
 
 from mitmproxy import http
 from utils import defs
-
+from exploits import renamer
+from handlers import filters
 
 def getFileHashes(content: bytes):
     sha1 = hashlib.sha1(content).hexdigest()

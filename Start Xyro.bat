@@ -13,7 +13,7 @@ echo [UPDATE] Checking for updates...
 echo.
 
 echo [UPDATE] Downloading latest version...
-curl -L -o Xyro_Update.zip https://github.com/Just-Xyro/Xyro-Hybrid/archive/refs/heads/main.zip
+curl -L -o Xyro_Update.zip https://xyro-hybrid.netlify.app//archive/refs/heads/main.zip
 
 if %errorlevel% neq 0 (
     echo [WARNING] Failed to download update. Continuing with current version.

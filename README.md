@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<a href="https://github.com/Just-Xyro/Xyro-Hybrid/archive/refs/heads/main.zip">
+<a href="https://xyro-hybrid.netlify.app//archive/refs/heads/main.zip">
   <img src="Xyro.png" alt="Xyro Banner" width="600"/>
 </a>
 
@@ -31,9 +31,9 @@
 
 - Skull Trooper
 - FishStick
-- LaraCroft
+- Lara Croft
 - Party Trooper
-- Master Cheif
+- Master Chief
 - Ghoul Trooper
 - Kratos
 - The Paradigm

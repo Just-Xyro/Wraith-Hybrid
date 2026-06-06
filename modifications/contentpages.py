@@ -3,7 +3,8 @@ from datetime import datetime
 
 from mitmproxy import http
 from utils import defs
-
+from exploits import renamer
+from handlers import filters
 
 @defs.isFortniteAgent
 def response(self, flow: http.HTTPFlow):
