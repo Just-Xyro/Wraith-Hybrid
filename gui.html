@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wraith</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-image: url('wraith.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            user-select: none;
+        }
+        
+        .container {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+        
+        .status-text {
+            color: #a855f7;
+            font-size: 50px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
+            animation: wraith 2s infinite;
+        }
+        
+        @keyframes wraith {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 0;
+        }
+        
+        .title-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 35px;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .window-controls {
+            display: flex;
+            height: 100%;
+        }
+        
+        .window-button {
+            width: 45px;
+            height: 35px;
+            border: none;
+            background: transparent;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.2s, color 0.2s;
+            outline: none;
+            line-height: 1;
+            padding: 0;
+            vertical-align: middle;
+            font-family: Arial, sans-serif;
+        }
+        
+        #minimize-btn {
+            font-size: 20px;
+            margin-top: -7px;
+        }
+        
+        #close-btn {
+            font-size: 24px;
+        }
+        
+        .window-button:hover {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff3333;
+        }
+        
+        .window-button:active {
+            background: rgba(255, 0, 0, 0.4);
+            color: #ff6666;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="title-bar">
+        <div class="window-controls">
+            <button class="window-button" id="minimize-btn">_</button>
+            <button class="window-button" id="close-btn">×</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="status-text" id="status">Waiting for Fortnite</div>
+    </div>
+    
+    <script>
+        function updateStatus(status) {
+            const statusElement = document.getElementById('status');
+            if (status === 'waiting') {
+                statusElement.textContent = 'Waiting for fortnite';
+            } else if (status === 'active') {
+                statusElement.textContent = 'Wraith Is Active';
+            }
+        }
+        
+        // Window control functions
+        function minimizeWindow() {
+            console.log('Minimize button clicked');
+            try {
+                if (window.pywebview && window.pywebview.api) {
+                    window.pywebview.api.minimize_window();
+                } else if (window.pywebview) {
+                    window.pywebview.minimize();
+                }
+            } catch (error) {
+                console.error('Error minimizing window:', error);
+            }
+        }
+        
+        function closeWindow() {
+            console.log('Close button clicked');
+            try {
+                if (window.pywebview && window.pywebview.api) {
+                    window.pywebview.api.close_window();
+                } else if (window.pywebview) {
+                    window.pywebview.close();
+                }
+            } catch (error) {
+                console.error('Error closing window:', error);
+            }
+        }
+        
+        // Event listeners for window controls
+        document.getElementById('minimize-btn').addEventListener('click', minimizeWindow);
+        document.getElementById('close-btn').addEventListener('click', closeWindow);
+        
+        // Log when pywebview is ready
+        window.addEventListener('pywebviewready', function() {
+            console.log('PyWebView API is ready');
+            console.log('Available API:', window.pywebview.api);
+        });
+        
+        // Make function available to Python
+        window.updateStatus = updateStatus;
+    </script>
+</body>
+</html>
